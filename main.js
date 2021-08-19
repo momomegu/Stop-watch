@@ -16,7 +16,7 @@
     const h = d.getUTCHours();
     const m = d.getMinutes();
     const s = d.getSeconds();
-    const ms = String(d.getMilliseconds()).padStart(1,`0`);
+    const ms = String(d.getMilliseconds()).substr(0,'1');
     timer.textContent = `${h}:${m}:${s}:${ms}`;
 
     timeoutId = setTimeout(() => {
@@ -34,16 +34,16 @@
   
   //実行中はスタート、リセットなし
   function setButtonStateRunning() {
-    start.disebled = true;
-    stop.disebled = false;
-    reset.disebled = true;
+    start.disabled = true;
+    stop.disabled = false;
+    reset.disabled = true;
   }
   
   //ストップ時はストップ非活性
   function setButtonStateStopped() {
-    start.disebled = false;
-    stop.disebled = true;
-    reset.disebled = false;
+  start.disabled = false;
+  stop.disabled = true;
+  reset.disabled = false;
   }
   
   
